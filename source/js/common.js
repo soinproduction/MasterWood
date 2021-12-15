@@ -651,9 +651,9 @@
 let indexSlider = new Swiper(".index-box", {
   spaceBetween: 15,
   slidesPerView: 1,
-  loop: true,
+  // loop: true,
   pagination: {
-        el: ".master-sec__dots",
+        el: ".index-box__pagination",
         clickable: true,
       },
   navigation: {

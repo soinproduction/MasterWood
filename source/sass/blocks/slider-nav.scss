@@ -1,0 +1,42 @@
+.slider-arrows {
+  display: flex;
+  grid-gap: 22px;
+
+
+  svg {
+    fill: $color--w;
+    transition: all .4s;
+  }
+
+  button.swiper-button-disabled {
+    svg {
+      fill: #6A6A6A;
+    }
+
+    pointer-events: none;
+  }
+}
+
+.slider-pagination {
+  max-width: 30.208vw;
+  display: flex;
+  justify-content: space-between;
+
+  .swiper-pagination-bullet {
+    width: calc(100% / 3 - 4px);
+    height: 5px;
+    background-color:  #505050;
+    transition: all .4s;
+    cursor: pointer;
+
+    &.swiper-pagination-bullet-active {
+      background-color: $color--w;
+    }
+  }
+}
+
+.slider-nagigation {
+  margin-top: clamp(20px, 5.990vw, 115px);
+  display: grid;
+  grid-gap: 25px;
+}
