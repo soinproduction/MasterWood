@@ -647,18 +647,90 @@
 //     }
 // });
 
+if (document.getElementById('modal')) {
+  lightGallery(document.getElementById('modal'), {
+    controls: 0,
+    showinfo: 0,
+    rel: 0
+  });
+}
+
+
+lightGallery(document.querySelector('[data-modal="fixed-video"]'), {
+  controls: 0,
+  showinfo: 0,
+  rel: 0
+});
+
+
+
+
+
+
+
+
+let links = document.querySelectorAll('[data-anhor]');
+
+let childSlider = new Swiper(".child-slider", {
+  spaceBetween: 30,
+  slidesPerView: 'auto',
+  loop: true,
+  observer: true,
+  pagination: {
+    el: ".child-slider-pagination",
+    clickable: false,
+  },
+});
+
+let bgSlider = new Swiper(".bg-slider", {
+  spaceBetween: 0,
+  slidesPerView: 1,
+  watchSlidesProgress: true,
+  fadeEffect: {
+    crossFade: true
+  },
+  effect: "fade"
+});
+
 
 let indexSlider = new Swiper(".index-box", {
-  spaceBetween: 15,
+  spaceBetween: 0,
   slidesPerView: 1,
-  // loop: true,
+  history: false,
+  hashNavigation: {
+    replaceState: true,
+    watchState: true,
+  },
   pagination: {
-        el: ".index-box__pagination",
-        clickable: true,
-      },
+    el: ".index-box__pagination",
+    clickable: false,
+  },
   navigation: {
     nextEl: ".index-section__next",
     prevEl: ".index-section__prev",
+  },
+
+  thumbs: {
+    swiper: bgSlider,
+  },
+
+  on: {
+    init: function () {
+      let i = this.realIndex + 1
+
+
+      if (i === 2) {
+        $('.index-section').addClass('test')
+      } else {
+        $('.index-section').removeClass('test')
+      }
+
+
+      $('[data-anhor]').removeClass('active');
+      $(`[data-anhor="${i}"]`).addClass('active');
+
+
+    },
   },
   // breakpoints: {
   //   320: {
@@ -679,3 +751,33 @@ let indexSlider = new Swiper(".index-box", {
   //   },
   // }
 });
+
+
+
+
+indexSlider.on('slideChange', function (e) {
+  let i = this.realIndex + 1
+
+  if (i === 2) {
+    $('.index-section').addClass('test')
+  } else {
+    $('.index-section').removeClass('test')
+  }
+
+  $('[data-anhor]').removeClass('active');
+  $(`[data-anhor="${i}"]`).addClass('active');
+});
+
+
+if (! $('.index-box').length) {
+  $('.main-nav__slider a').each(function () {
+    let href = $(this).attr('href')
+    let newHref = 'index.html' + href;
+    $(this).attr('href', newHref);
+  })
+}
+
+
+
+
+// console.log(activeSlide.dataset.hash)

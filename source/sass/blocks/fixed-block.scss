@@ -1,0 +1,63 @@
+.fixed-video {
+  position: fixed;
+  z-index: 20;
+  right: 0;
+  bottom: 15vh;
+  border-radius: 3px 0 0 3px;
+  cursor: pointer;
+  transition: all .4s;
+
+  &::before {
+    content: '';
+    width: 35%;
+    height: 5px;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-100%);
+    z-index: 10;
+    transition: all .4s;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+
+    &::before {
+      width: 100%;
+    }
+
+    img {
+
+      filter: brightness(60%);
+    }
+  }
+
+  img {
+    transition: all .4s;
+    filter: brightness(20%);
+    border-radius: 3px 0 0 3px;
+  }
+
+  &__image {
+    position: relative;
+  }
+
+  &__descr {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 20px;
+    transform: translate(0%, -50%);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    grid-gap: 15px;
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 14px;
+    color: $text--w;
+  }
+}

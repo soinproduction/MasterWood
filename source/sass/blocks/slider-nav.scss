@@ -35,8 +35,11 @@
   }
 }
 
-.slider-nagigation {
-  margin-top: clamp(20px, 5.990vw, 115px);
+.slider-navigation {
   display: grid;
   grid-gap: 25px;
+  position: absolute;
+  bottom: -80px;
+  width: 30.208vw;
+  z-index: 10;
 }

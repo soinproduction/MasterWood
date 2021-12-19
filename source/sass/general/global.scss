@@ -5,8 +5,8 @@ body {
   font-size: 16px;
   line-height: 100%;
   font-family: "Gilroy";
-  color: #000000;
-  background-color: rgb(0, 0, 0);
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
 }
 
@@ -18,7 +18,7 @@ html {
 
 main {
   height: 100vh;
-  // min-height: 800px;
+  min-height: 800px;
 }
 
 *,
