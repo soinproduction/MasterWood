@@ -135,9 +135,10 @@
 .close svg {
   fill: #FFFFFF;
 
-  &--useful {
-    fill: #000000;
-  }
+
 }
 
+.close--useful svg  {
+  fill: #000000;
+}
 
