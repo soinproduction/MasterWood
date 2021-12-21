@@ -19,6 +19,7 @@
 
 .slider-pagination {
   max-width: 30.208vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 
@@ -35,7 +36,7 @@
   }
 }
 
-.slider-navigation {
+.index-box .slider-navigation {
   display: grid;
   grid-gap: 25px;
   position: absolute;

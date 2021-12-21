@@ -8,6 +8,11 @@ body {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
+
+  &.fixed {
+    overflow: hidden;
+    position: fixed;
+  }
 }
 
 html {
@@ -145,6 +150,7 @@ input[type="number"] {
     width: 9px;
     box-shadow: none;
     height: 100%;
+    display: none;
   }
 
   &::-webkit-scrollbar-thumb {

@@ -1,0 +1,143 @@
+.useful-sec {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  &:before {
+    width: 54.688vw;
+    height: 100%;
+    background: #000;
+    opacity: .6;
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    -webkit-animation: bg-vissible 1s;
+    animation: bg-vissible 1s;
+    content: '';
+    position: absolute;
+    transition: all .4s;
+    z-index: 1;
+  }
+}
+
+.useful-inner__slide {
+  display: flex;
+  align-items: center;
+}
+
+.descr-box {
+  background: #FFFFFF;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  margin-left: -100px;
+  padding: 36px 60px 26px;
+  box-sizing: border-box;
+  transform: translateY(-200%);
+  transition: all .6s;
+  opacity: 0;
+  transition-delay: .3s;
+
+  &__name {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #C4C4C4;
+  }
+
+  &__title {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    color:#000000;
+    max-width: 75%;
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000;
+    flex-grow: 1;
+  }
+}
+
+.useful-inner__slider {
+  overflow: initial;
+}
+
+.useful-inner__slide {
+  transition: all .4s;
+  transform: scale(0);
+
+}
+
+.useful-inner__slide.swiper-slide-active {
+  transform: scale(1);
+
+  .descr-box {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+.useful-box {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-gap: 50px;
+}
+
+.useful-inner {
+  transform: translateX(-200px);
+}
+
+
+.useful-box__pagination {
+  margin-bottom: 30px;
+}
+
+
+.frame-useful {
+  margin-top: 0 ;
+
+  &__collback {
+    max-width: 180px;
+    margin-left: auto;
+  }
+
+  &__article {
+    margin-top: -30px;
+    display: grid;
+    width: 100%;
+    grid-gap: 25px;
+  }
+
+  &__text {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
+    color: #000000;
+  }
+}
+
+.close {
+  fill: #FFFFFF;
+
+  &--useful {
+    fill: #000000;
+  }
+}
+
+

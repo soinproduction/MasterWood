@@ -655,12 +655,17 @@ if (document.getElementById('modal')) {
   });
 }
 
+if (document.querySelector('.works-sec')) {
+  let footerNav = document.querySelector('.footer-top__nav').style.visibility = 'hidden'
+}
 
 lightGallery(document.querySelector('[data-modal="fixed-video"]'), {
   controls: 0,
   showinfo: 0,
   rel: 0
 });
+
+
 
 
 
@@ -682,6 +687,21 @@ let childSlider = new Swiper(".child-slider", {
   },
 });
 
+let worksSlider = new Swiper(".works-sec__slider", {
+  spaceBetween: 20,
+  slidesPerView: 2.2,
+  loop: true,
+  pagination: {
+    el: ".works-sec__pagination",
+    clickable: false,
+  },
+  navigation: {
+    nextEl: ".works-sec__next",
+    prevEl: ".works-sec__prev",
+  },
+});
+
+
 let bgSlider = new Swiper(".bg-slider", {
   spaceBetween: 0,
   slidesPerView: 1,
@@ -690,6 +710,26 @@ let bgSlider = new Swiper(".bg-slider", {
     crossFade: true
   },
   effect: "fade"
+});
+
+
+let usefulSlider = new Swiper(".useful-inner__slider", {
+  spaceBetween: 0,
+  slidesPerView: 1,
+  history: false,
+  pagination: {
+    el: ".useful-box__pagination",
+    clickable: false,
+  },
+  navigation: {
+    nextEl: ".useful-box__next",
+    prevEl: ".useful-box__prev",
+  },
+
+  thumbs: {
+    swiper: bgSlider,
+  }
+
 });
 
 
@@ -776,6 +816,96 @@ if (! $('.index-box').length) {
     $(this).attr('href', newHref);
   })
 }
+
+function initAjaxSlider() {
+  let frameSlider = new Swiper(".frame-block__slider", {
+    spaceBetween: 0,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: ".frame-slider-nav__next",
+      prevEl: ".frame-slider-nav__prev",
+    },
+    pagination: {
+      el: ".frame-slider-nav__pagination",
+      clickable: true,
+    },
+  });
+}
+
+function initFrameGalery() {
+  let galeryBlocks = document.querySelectorAll('.frame-inner__galery');
+  for (const galeryBlock of galeryBlocks) {
+    lightGallery(galeryBlock)
+  }
+}
+
+
+$('.works-sec__slide').each(function(){
+  $(this).on('click', function(){ //При клике по элементу с id=price выполнять...
+
+    let data = $(this).attr('data-slide');
+
+    $(`[data-show="${data}"`).addClass('active');
+    $('body').addClass('fixed')
+
+    $.ajax({
+        url: 'works_frame.html', //Путь к файлу, который нужно подгрузить
+        type: 'GET',
+        beforeSend: function(){
+            $(`[data-show="${data}"`).empty(); //Перед выполнением очищает содержимое блока с id=content
+        },
+        success: function(responce){
+          $(`[data-show="${data}"`).append(responce); //Подгрузка внутрь блока с id=content
+          initAjaxSlider();
+          initFrameGalery();
+        },
+        complete: function(){
+          $('.close').click(function(){
+            $('.frame-wrapp').removeClass('active');
+            $('body').removeClass('fixed')
+          });
+        }
+    });
+  });
+
+
+
+});
+
+$('.useful-inner__slide').each(function(){
+  $(this).on('click', function(){ //При клике по элементу с id=price выполнять...
+
+    let data = $(this).attr('data-slide');
+
+    $(`[data-show="${data}"`).addClass('active');
+    $('body').addClass('fixed')
+
+    $.ajax({
+        url: 'useful_frame.html', //Путь к файлу, который нужно подгрузить
+        type: 'GET',
+        beforeSend: function(){
+            $(`[data-show="${data}"`).empty(); //Перед выполнением очищает содержимое блока с id=content
+        },
+        success: function(responce){
+          $(`[data-show="${data}"`).append(responce); //Подгрузка внутрь блока с id=content
+          initAjaxSlider();
+          initFrameGalery();
+        },
+        complete: function(){
+          $('.close').click(function(){
+            $('.frame-wrapp').removeClass('active');
+            $('body').removeClass('fixed')
+          });
+        }
+    });
+  });
+
+
+
+});
+
+
+
 
 
 

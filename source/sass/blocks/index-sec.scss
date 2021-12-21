@@ -9,7 +9,7 @@
 
   &::before {
     width: 54.688vw;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     content: '';
     background: #000000;
@@ -80,6 +80,11 @@
     text-decoration-line: underline;
     color: $text--w;
   }
+}
+
+.bg-slider img {
+  width: 100vw;
+  height: 100vh;
 }
 
 .index-box {
