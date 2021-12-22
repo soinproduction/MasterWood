@@ -1,8 +1,8 @@
 footer {
-  position: absolute;
+  margin-top: -90px;
   padding: 0 clamp(20px, 3.646vw, 70px);
   width: 100vw;
-  bottom: 25px;
+  position: relative;
   z-index: 10;
 }
 

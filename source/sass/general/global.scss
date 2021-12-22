@@ -8,6 +8,7 @@ body {
   color: #fff;
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
+  min-height: 900px;
 
   &.fixed {
     overflow: hidden;
@@ -21,9 +22,13 @@ html {
   overflow-x: hidden;
 }
 
+section {
+
+}
+
 main {
+  min-height: 900px;
   height: 100vh;
-  min-height: 800px;
 }
 
 *,
