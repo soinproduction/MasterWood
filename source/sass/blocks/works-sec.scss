@@ -48,7 +48,7 @@
     filter: brightness(35%);
     transition: all .4s ease-in-out;
     cursor: pointer;
-    pointer-events: none;
+    // pointer-events: none;
 
     &.swiper-slide-active {
       filter: brightness(100%);
@@ -136,20 +136,25 @@
   bottom: 0;
   right: 0;
   transform: translateX(105%);
-  transition: all .4s;
+  transition: all .5s;
+
 
   &.active {
     transform: translateX(0);
+    transition-delay: .3s;
 
     &::before {
+      transition: opacity .2s linear;
+      transition-delay: 0;
       opacity: 1;
-      width: 100vw;
-      left: -100vw;
+      width: 120vw;
+      left: -120vw;
     }
   }
 
   &::before {
-    transition: all .4s;
+    transition: .2s linear;
+    transition-delay: 0s;
     content: '';
     position: fixed;
     top: 0;
@@ -288,5 +293,14 @@
 .footer-contact--frame {
   .footer-contact__link {
     color: #000;
+  }
+}
+
+
+.works-descr__more {
+  transition: all .4s;
+
+  &:hover {
+    transform: scale(1.1);
   }
 }

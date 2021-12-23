@@ -1,8 +1,8 @@
 
 
-@media (min-width: 320px) and (max-width: 575px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
   .container {
-    max-width: 575px;
+    max-width: 100%;
     padding: 0 20px;
   }
 
@@ -124,6 +124,31 @@
     align-items: center;
   }
 
+  .footer-top__list {
+    grid-gap: initial;
+    white-space: nowrap;
+  }
+
+  .footer-top__nav {
+    max-width: 100%;
+  }
+
+  .footer {
+    display: grid;
+  }
+
+  .footer-top__item {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-top {
+    margin-left: -20px;
+    width: calc(100vw);
+    padding: 0 10px;
+  }
 
 
 
