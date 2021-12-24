@@ -8,24 +8,22 @@ function mobileSlider() {
       $(this).addClass('swiper-slide');
     });
 
+    $('.mobile-slider__button').each(function(){
+      $(this).css('display', 'block');
+    });
+
     mySlider = new Swiper('.footer-top__nav', {
       spaceBetween: 20,
       slidesPerView: 'auto',
       freeMode: true,
       loop: true,
+      observer: true,
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '<div class="123">212</div>',
+        nextEl: '.mobile-slider__next',
+        prevEl: '.mobile-slider__prev',
       },
     });
 
-    function test() {
-      var r = $('<button>')
-
-      test().append('.footer-top__nav', 'footer');
-    }
-
-    test()
   }
 
   if (window.innerWidth > 575) {
@@ -87,7 +85,10 @@ if (document.getElementById('modal')) {
 }
 
 if (document.querySelector('.works-sec')) {
-  let footerNav = document.querySelector('.footer-top__nav').style.visibility = 'hidden'
+  let footerNav = document.querySelector('.footer-top__nav').style.visibility = 'hidden';
+  $('.mobile-slider__button').each(function(){
+    $(this).css('display', 'none');
+  });
 }
 
 lightGallery(document.querySelector('[data-modal="fixed-video"]'), {
@@ -140,6 +141,20 @@ let worksSlider = new Swiper(".works-sec__slider", {
     nextEl: ".works-sec__next",
     prevEl: ".works-sec__prev",
   },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 'auto',
+      spaceBetween: 14,
+      centeredSlides: true,
+      initialSlide: 1,
+    },
+    1024: {
+      slidesPerView: 1,
+    },
+  }
 });
 
 

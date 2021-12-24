@@ -44,3 +44,13 @@
   width: 30.208vw;
   z-index: 10;
 }
+
+.mobile-slider__button svg {
+  fill: #6a6a6a;
+}
+
+.mobile-slider__button:hover {
+  svg {
+    fill: #fff;
+  }
+}
