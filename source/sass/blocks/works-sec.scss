@@ -169,7 +169,7 @@
 }
 
 
-.frame-list {
+.frame-block .frame-list {
   display: grid;
   grid-template-columns: 188px 188px 180px;
   justify-content: space-between;
@@ -304,3 +304,24 @@
     transform: scale(1.1);
   }
 }
+
+
+.works-sec__slider {
+  display: none;
+  transition: all .4s;
+
+  .works-sec__slide {
+    opacity: 0;
+    transition: linear .8s opacity;
+  }
+
+  &.active {
+    display: grid;
+    margin: 0;
+
+    .works-sec__slide {
+      opacity: 1;
+    }
+  }
+}
+

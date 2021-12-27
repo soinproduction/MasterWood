@@ -231,6 +231,53 @@
     opacity: 1;
   }
 
+  .works-sec__pagination {
+    width: calc(100% - 20px);
+  }
+
+  .frame-descr {
+    padding: 20px;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .frame-inner__galery {
+    display: flex;
+    grid-gap: initial;
+  }
+
+  .frame-wrapp {
+    overflow-x: hidden;
+    width: 100vw;
+  }
+
+  .frame-box {
+    grid-template-columns: 1fr;
+  }
+
+  .frame-block .frame-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .frame-inner__galery.swiper-wrapper{
+    width: calc(100vw - 40px);
+    img {
+      max-width: 100vw;
+      width: 100%;
+    }
+  }
+
+  .frame-inner__mobile-wrapper {
+    max-width: 100vw;
+  }
+
+  .frame-slider-nav__pagination {
+    left: 20px;
+    width: calc(100vw - 40px);
+  }
+
 
 
 }
