@@ -142,3 +142,10 @@
   fill: #000000;
 }
 
+.useful-inner__slide img {
+  max-width: 680px;
+  flex-shrink: 1;
+  width: 100vw;
+  object-fit: cover;
+}
+

@@ -114,9 +114,12 @@
     display: flex;
     grid-gap: 44px;
 
-    svg {
+    .point-wrapp__icon{
       margin-top: 20px;
       flex-shrink: 0;
+      object-fit: contain;
+      height: fit-content;
+      max-width: 60px;
     }
   }
 
