@@ -320,6 +320,26 @@ function initFrameGalery() {
   }
 }
 
+function openSingleArticle(){
+  $('.frame-box__more', '.frame-box__descr').click(function(e){
+    e.preventDefault();
+    console.log('work');
+    $('.single-article').addClass('active');
+  });
+
+  $('.close','.single-article').click(function(e){
+    e.preventDefault();
+    $('.single-article').removeClass('active');
+  });
+}
+
+function closeFirstFrame(){
+  $('.frame-block > .close').click(function(){
+    $('.frame-wrapp').removeClass('active');
+    $('body').removeClass('fixed')
+  });
+}
+
 
 $('.works-sec__slide .works-descr__more').each(function(e){
 
@@ -340,12 +360,11 @@ $('.works-sec__slide .works-descr__more').each(function(e){
           $(`[data-show="${data}"`).append(responce); //Подгрузка внутрь блока с id=content
           initAjaxSlider();
           initFrameGalery();
+          openSingleArticle()
+
         },
         complete: function(){
-          $('.close').click(function(){
-            $('.frame-wrapp').removeClass('active');
-            $('body').removeClass('fixed')
-          });
+          closeFirstFrame()
         }
     });
   });
@@ -372,12 +391,11 @@ $('.useful-inner__slide .frame-box__more').each(function(){
           $(`[data-show="${data}"`).append(responce); //Подгрузка внутрь блока с id=content
           initAjaxSlider();
           initFrameGalery();
+          openSingleArticle()
+
         },
         complete: function(){
-          $('.close').click(function(){
-            $('.frame-wrapp').removeClass('active');
-            $('body').removeClass('fixed')
-          });
+          closeFirstFrame()
         }
     });
   });
@@ -441,11 +459,21 @@ $('.close', '.form-box').click(function(e){
 })
 
 
-$(document).mouseup(function (e){ // событие клика по веб-документу
-  var div = $(".form-box");
-  console.log(e.target)/// тут указываем ID элемента
-  if (!div.is(e.target) // если клик был не по нашему блоку
-      && div.has(e.target).length === 0) {
-        $('.form-box').removeClass('active');
-  }
-});
+// $(document).mouseup(function (e){ // событие клика по веб-документу
+//   var div = $(".form-box");
+//   if (!div.is(e.target) && div.has(e.target).length === 0) {
+//       $('.form-box').removeClass('active');
+//   }
+// });
+
+
+
+
+
+
+  // $('.frame-box__more', '.frame-box__descr').addEventListener('click', function(e){
+  //   e.preventDefault();
+
+
+  //   $('.single-article').addClass('active');
+  // });
