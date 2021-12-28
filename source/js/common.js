@@ -427,3 +427,25 @@ for (var i = 0; i < tabNavs.length; i++) {
   });
 }
 
+
+$('.index-box__link', '.index-box__inner').each(function(e){
+  $(this).click(function(e){
+    e.preventDefault();
+    $('.form-box').addClass('active');
+  });
+})
+
+$('.close', '.form-box').click(function(e){
+  e.preventDefault();
+  $('.form-box').removeClass('active');
+})
+
+
+$(document).mouseup(function (e){ // событие клика по веб-документу
+  var div = $(".form-box");
+  console.log(e.target)/// тут указываем ID элемента
+  if (!div.is(e.target) // если клик был не по нашему блоку
+      && div.has(e.target).length === 0) {
+        $('.form-box').removeClass('active');
+  }
+});
