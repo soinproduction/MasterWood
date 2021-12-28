@@ -1,0 +1,41 @@
+.error-sec {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-30%);
+  }
+
+  &__image {
+    max-width: 520px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #C4C4C4;
+    margin-bottom: 5px;
+  }
+
+  &__link {
+    font-family: $font-family;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #C4C4C4;
+    text-decoration: underline;
+    transition: all .4s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}
