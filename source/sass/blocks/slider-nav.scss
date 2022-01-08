@@ -54,3 +54,21 @@
     fill: #fff;
   }
 }
+
+.frame-dots {
+  display: flex;
+  justify-content: center;
+  grid-gap: 8px;
+
+  .swiper-pagination-bullet {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #000000;
+    transition: all .4s;
+
+    &.swiper-pagination-bullet-active {
+      transform: scale(2);
+    }
+  }
+}

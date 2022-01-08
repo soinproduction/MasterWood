@@ -177,6 +177,7 @@
   margin-right: calc(100% - 920px);
   max-width: 920px;
   width: 100vw;
+  padding-bottom: 20px;
 
   &__slide {
     max-width: 537px;
@@ -247,5 +248,10 @@
     height: 5px;
     border-radius: 50%;
     background-color: #fff;
+    // transition: all .4s;
+
+    // &.swiper-pagination-bullet-active {
+    //   transform: scale(2);
+    // }
   }
 }

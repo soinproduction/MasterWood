@@ -10,10 +10,11 @@ body {
   width: 100%;
   min-height: 900px;
 
-  &.fixed {
-    overflow: hidden;
-    position: fixed;
-  }
+  // &.fixed {
+  //   overflow-x: hidden;
+  //   position: fixed;
+  //   height: 100%;
+  // }
 }
 
 html {

@@ -124,7 +124,7 @@ let childSlider = new Swiper(".child-slider", {
   observer: true,
   pagination: {
     el: ".child-slider-pagination",
-    clickable: false,
+    clickable: true,
   },
   breakpoints: {
     320: {
@@ -143,6 +143,7 @@ let worksSlider = new Swiper(".works-sec__slider", {
   slideToClickedSlide: true,
   observer: true,
   observeParents: true,
+  speed: 2000,
   loop: true,
   pagination: {
     el: ".works-sec__pagination",
@@ -196,6 +197,12 @@ let usefulSlider = new Swiper(".useful-inner__slider", {
 
   thumbs: {
     swiper: bgSlider,
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+    },
+
   }
 
 });
@@ -204,6 +211,7 @@ let usefulSlider = new Swiper(".useful-inner__slider", {
 let indexSlider = new Swiper(".index-box", {
   spaceBetween: 0,
   slidesPerView: 1,
+  speed: 600,
   history: false,
   hashNavigation: {
     replaceState: true,
@@ -296,12 +304,18 @@ function initAjaxSlider() {
       $(this).addClass('swiper-slide');
     });
 
+    $('.frame-inner__mobile-wrapper').append('<div class="frame-dots"></div>')
+
 
     let frameSliderMobile = new Swiper(".frame-inner__mobile-wrapper", {
       spaceBetween: 20,
       loop: true,
       slidesPerView: 'auto',
       observer: true,
+      pagination: {
+        el: ".frame-dots",
+        clickable: true,
+      },
     });
 
   } else {
