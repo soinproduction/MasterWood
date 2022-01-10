@@ -1,0 +1,30 @@
+.footer-contact__link {
+  transition: all .4s;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.collback-button {
+  transition: all .4s;
+
+  &:hover {
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  }
+}
+
+.frame-box__more {
+  width: fit-content;
+  transition: all .4s;
+
+  svg {
+    transition: all .4s;
+  }
+
+  &:hover {
+    text-shadow: -3px 5px 6px rgba(0,0,0,0.57);
+    svg {
+      transform: translateX(4px);
+    }
+  }
+}

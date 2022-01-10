@@ -3,17 +3,44 @@
   grid-gap: 22px;
 
 
-  svg {
-    fill: $color--w;
-    transition: all .4s;
-  }
-
-  button.swiper-button-disabled {
+  button {
     svg {
       fill: #6A6A6A;
+      transition: all .4s;
     }
 
-    pointer-events: none;
+    button.swiper-button-disabled {
+      // svg {
+      //   fill: #6A6A6A;
+      // }
+
+      pointer-events: none;
+    }
+
+    &:hover {
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+
+}
+
+.frame-descr {
+  .slider-arrows {
+    button {
+      svg {
+        fill: #6A6A6A;
+        transition: all .4s;
+      }
+
+      &:hover {
+        svg {
+          fill: #000;
+        }
+      }
+    }
+
   }
 }
 

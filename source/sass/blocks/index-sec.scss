@@ -1,6 +1,6 @@
 .index-section {
   position: relative;
-  height: 100%;
+  height: calc(100%);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -77,8 +77,13 @@
     font-weight: normal;
     font-size: 16px;
     line-height: 23px;
-    text-decoration-line: underline;
+    width: fit-content;
     color: $text--w;
+    transition: all .4s;
+    &:hover {
+      text-decoration-line: underline;
+      transform: scale(1.03);
+    }
   }
 }
 

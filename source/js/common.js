@@ -1,7 +1,7 @@
 let mySlider
 
 function mobileSlider() {
-  if (window.innerWidth <= 575) {
+  if (window.innerWidth <= 767) {
     $('.footer-top__list', 'footer').addClass('swiper-wrapper');
     $('.footer-top__nav', 'footer').addClass('swiper-container');
     $('.footer-top__item', 'footer').each(function(){
@@ -35,7 +35,7 @@ function mobileSlider() {
 
   }
 
-  if (window.innerWidth > 575) {
+  if (window.innerWidth > 767) {
     if ($('.footer-top__nav', 'footer').hasClass('swiper-container-initialized')) {
       mySlider.destroy();
       $('.footer-top__list', 'footer').removeClass('swiper-wrapper');
@@ -107,14 +107,6 @@ lightGallery(document.querySelector('[data-modal="fixed-video"]'), {
 });
 
 
-
-
-
-
-
-
-
-
 let links = document.querySelectorAll('[data-anhor]');
 
 let childSlider = new Swiper(".child-slider", {
@@ -130,9 +122,17 @@ let childSlider = new Swiper(".child-slider", {
     320: {
       slidesPerView: 1,
     },
+    576: {
+      slidesPerView: 1.4,
+      spaceBetween: 20,
+    },
     768: {
-      spaceBetween: 30,
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    992: {
       slidesPerView: 'auto',
+      spaceBetween: 20,
     },
   }
 });
@@ -157,13 +157,13 @@ let worksSlider = new Swiper(".works-sec__slider", {
     320: {
       slidesPerView: 1,
     },
-    768: {
-      slidesPerView: 'auto',
+    576: {
+      slidesPerView: 1.5,
       spaceBetween: 14,
       centeredSlides: true,
       initialSlide: 1,
     },
-    1024: {
+    992: {
       spaceBetween: 20,
       slidesPerView: 2.2,
     },
@@ -186,6 +186,7 @@ let usefulSlider = new Swiper(".useful-inner__slider", {
   spaceBetween: 0,
   slidesPerView: 1,
   history: false,
+  speed: 1200,
   pagination: {
     el: ".useful-box__pagination",
     clickable: true,
@@ -200,6 +201,9 @@ let usefulSlider = new Swiper(".useful-inner__slider", {
   },
   breakpoints: {
     320: {
+      slidesPerView: 1,
+    },
+    576: {
       slidesPerView: 1,
     },
 
@@ -245,14 +249,13 @@ let indexSlider = new Swiper(".index-box", {
     320: {
       autoHeight: true,
     },
-    768: {
-      slidesPerView: 'auto',
-      spaceBetween: 14,
-      centeredSlides: true,
-      initialSlide: 1,
-    },
-    1024: {
-      slidesPerView: 1,
+    // 768: {
+    //   slidesPerView: 1,
+    //   spaceBetween: 0,
+    //   initialSlide: 1,
+    // },
+    1240: {
+      autoHeight: false,
     },
   }
 });
