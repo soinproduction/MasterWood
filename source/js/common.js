@@ -1,89 +1,3 @@
-let mySlider
-
-function mobileSlider() {
-  if (window.innerWidth <= 767) {
-    $('.footer-top__list', 'footer').addClass('swiper-wrapper');
-    $('.footer-top__nav', 'footer').addClass('swiper-container');
-    $('.footer-top__item', 'footer').each(function(){
-      $(this).addClass('swiper-slide');
-    });
-
-    $('.mobile-slider__button').each(function(){
-      $(this).css('display', 'block');
-    });
-
-    mySlider = new Swiper('.footer-top__nav', {
-      spaceBetween: 20,
-      slidesPerView: 'auto',
-      freeMode: true,
-      loop: true,
-      observer: true,
-      navigation: {
-        nextEl: '.mobile-slider__next',
-        prevEl: '.mobile-slider__prev',
-      },
-    });
-
-    //--- frame slider
-    $('.frame-inner__galery', 'frame-inner__mobile-wrapper').addClass('swiper-wrapper');
-    $('.frame-inner__mobile-wrapper', 'frame-inner').addClass('swiper-container');
-    $('.frame-inner__item', 'frame-inner__mobile-wrapper').each(function(){
-      $(this).addClass('swiper-slide');
-    });
-
-
-
-  }
-
-  if (window.innerWidth > 767) {
-    if ($('.footer-top__nav', 'footer').hasClass('swiper-container-initialized')) {
-      mySlider.destroy();
-      $('.footer-top__list', 'footer').removeClass('swiper-wrapper');
-      $('.footer-top__nav', 'footer').removeClass('swiper-container');
-      $('.footer-top__item', 'footer').each(function(){
-        $(this).removeClass('swiper-slide');
-      });
-    }
-  }
-}
-
-mobileSlider()
-
-window.addEventListener('resize', () => {
-  mobileSlider();
-});
-
-
-
-// addFooterSlider()
-
-// function addFooterSlider(){
-
-// }
-
-// function removeFooterSlider(){
-//   $('.footer-top__list', 'footer').removeClass('swiper-wrapper');
-//   $('.footer-top__nav', 'footer').removeClass('swiper-container');
-//   $('.footer-top__item', 'footer').each(function(){
-//     $(this).removeClass('swiper-slide');
-//   });
-
-
-// }
-
-//   if (document.documentElement.clientWidth <= 575 ) {
-//     addFooterSlider();
-
-
-
-
-
-
-//   } else {
-//     removeFooterSlider()
-//   }
-
-
 
 if (document.getElementById('modal')) {
   lightGallery(document.getElementById('modal'), {
@@ -108,11 +22,11 @@ lightGallery(document.querySelector('[data-modal="fixed-video"]'), {
 
 
 let links = document.querySelectorAll('[data-anhor]');
-
 let childSlider = new Swiper(".child-slider", {
   spaceBetween: 30,
   slidesPerView: 'auto',
   loop: true,
+  allowPageScroll: "vertical",
   observer: true,
   pagination: {
     el: ".child-slider-pagination",
@@ -141,6 +55,7 @@ let worksSlider = new Swiper(".works-sec__slider", {
   spaceBetween: 20,
   slidesPerView: 2.2,
   slideToClickedSlide: true,
+  allowPageScroll: "vertical",
   observer: true,
   observeParents: true,
   speed: 2000,
@@ -175,6 +90,7 @@ let bgSlider = new Swiper(".bg-slider", {
   spaceBetween: 0,
   slidesPerView: 1,
   watchSlidesProgress: true,
+  allowPageScroll: "vertical",
   fadeEffect: {
     crossFade: true
   },
@@ -202,20 +118,19 @@ let usefulSlider = new Swiper(".useful-inner__slider", {
   breakpoints: {
     320: {
       slidesPerView: 1,
+      spaceBetween: 20,
     },
     576: {
       slidesPerView: 1,
     },
-
   }
-
 });
-
 
 let indexSlider = new Swiper(".index-box", {
   spaceBetween: 0,
   slidesPerView: 1,
   speed: 600,
+  allowPageScroll: "vertical",
   history: false,
   hashNavigation: {
     replaceState: true,
@@ -249,19 +164,11 @@ let indexSlider = new Swiper(".index-box", {
     320: {
       autoHeight: true,
     },
-    // 768: {
-    //   slidesPerView: 1,
-    //   spaceBetween: 0,
-    //   initialSlide: 1,
-    // },
     1240: {
       autoHeight: false,
     },
   }
 });
-
-
-
 
 indexSlider.on('slideChange', function (e) {
   let i = this.realIndex + 1
@@ -280,7 +187,7 @@ indexSlider.on('slideChange', function (e) {
 if (! $('.index-box').length) {
   $('.main-nav__slider a').each(function () {
     let href = $(this).attr('href')
-    let newHref = 'index.html' + href;
+    let newHref = window.origin + href;
     $(this).attr('href', newHref);
   })
 }
@@ -357,7 +264,6 @@ function closeFirstFrame(){
   });
 }
 
-
 $('.works-sec__slide .works-descr__more').each(function(e){
 
   $(this).on('click', function(event){ //При клике по элементу с id=price выполнять...
@@ -370,9 +276,9 @@ $('.works-sec__slide .works-descr__more').each(function(e){
     $.ajax({
         url: 'works_frame.html', //Путь к файлу, который нужно подгрузить
         type: 'GET',
-        beforeSend: function(){
-            $(`[data-show="${data}"`).empty(); //Перед выполнением очищает содержимое блока с id=content
-        },
+        // beforeSend: function(){
+        //     $(`[data-show="${data}"`).empty(); //Перед выполнением очищает содержимое блока с id=content
+        // },
         success: function(responce){
           $(`[data-show="${data}"`).append(responce); //Подгрузка внутрь блока с id=content
           initAjaxSlider();
@@ -401,9 +307,9 @@ $('.useful-inner__slide .frame-box__more').each(function(){
     $.ajax({
         url: 'useful_frame.html', //Путь к файлу, который нужно подгрузить
         type: 'GET',
-        beforeSend: function(){
-            $(`[data-show="${data}"`).empty(); //Перед выполнением очищает содержимое блока с id=content
-        },
+        // beforeSend: function(){
+        //     $(`[data-show="${data}"`).empty(); //Перед выполнением очищает содержимое блока с id=content
+        // },
         success: function(responce){
           $(`[data-show="${data}"`).append(responce); //Подгрузка внутрь блока с id=content
           initAjaxSlider();
@@ -418,26 +324,17 @@ $('.useful-inner__slide .frame-box__more').each(function(){
   });
 });
 
-
 $('.burger').click(function(){
   $(this).toggleClass('active');
   $(".mobile-wrapp").toggleClass('active');
   $('body').toggleClass('fixed');
 });
 
-
 $('.main-nav__item').click(function(){
   $('.burger').removeClass('active');
   $(".mobile-wrapp").removeClass('active');
   $('body').removeClass('fixed');
 })
-
-
-
-
-
-
-
 
 var tabNavs = document.querySelectorAll(".works-sec__link");
 var tabPanes = document.querySelectorAll(".works-sec__slider");
@@ -462,7 +359,6 @@ for (var i = 0; i < tabNavs.length; i++) {
   });
 }
 
-
 $('.index-box__link', '.index-box__inner').each(function(e){
   $(this).click(function(e){
     e.preventDefault();
@@ -475,22 +371,3 @@ $('.close', '.form-box').click(function(e){
   $('.form-box').removeClass('active');
 })
 
-
-// $(document).mouseup(function (e){ // событие клика по веб-документу
-//   var div = $(".form-box");
-//   if (!div.is(e.target) && div.has(e.target).length === 0) {
-//       $('.form-box').removeClass('active');
-//   }
-// });
-
-
-
-
-
-
-  // $('.frame-box__more', '.frame-box__descr').addEventListener('click', function(e){
-  //   e.preventDefault();
-
-
-  //   $('.single-article').addClass('active');
-  // });
